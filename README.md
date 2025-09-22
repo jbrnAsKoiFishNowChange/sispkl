@@ -4,7 +4,7 @@ Proyek ini dibuat menggunakan **React** dengan struktur modular agar mudah dikem
 
 ---
 
-## 1️⃣ Clone Repository
+### 1️⃣ Clone Repository
 
 1. Pastikan Git sudah terinstall di komputer:
 ```bash
