@@ -11,8 +11,8 @@ Proyek ini dibuat menggunakan **React** dengan struktur modular agar mudah dikem
 git --version
 
 2. Clone repository (menggandakan repository dari GitHub ke komputer sendiri): 
-git clone https://github.com/username/nama-repo.git
-cd nama-repo
+git clone https://github.com/jbrnAsKoiFishNowChange/sispkl
+cd sispkl 
 
 3. Install semua dependencies (library atau package yang dibutuhkan agar project bisa jalan):
 npm install
