@@ -66,7 +66,7 @@ src/
 │
 ├─ utils/
 │  └─ authHelper.js          # Fungsi login, logout, refresh token, token
-│  └─ axiosInstance.js       # konfigurasi request API, semua request ada disini nanti di main pages tinggal dipanggil fungsinya
+│  └─ axiosInstance.js       # konfigurasi request API,semua request ada disini nanti di main pages tinggal dipanggil fungsinya
 |  └─ crypto.js              # Enkripsi & deskripsi token
 │
 
