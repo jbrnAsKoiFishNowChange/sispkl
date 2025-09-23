@@ -65,8 +65,10 @@ src/
 │  └─ Login.jsx    
 │
 ├─ utils/
+|  └─ services               # tempat untuk menyimpan semua request
+|     └─ get_jurusan.js 
 │  └─ authHelper.js          # Fungsi login, logout, refresh token, token
-│  └─ axiosInstance.js       # konfigurasi request API,semua request ada disini nanti di main pages tinggal dipanggil fungsinya
+│  └─ axiosInstance.js       # konfigurasi utama request API
 |  └─ crypto.js              # Enkripsi & deskripsi token
 │
 
