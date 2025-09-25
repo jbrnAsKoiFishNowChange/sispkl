@@ -52,21 +52,27 @@ di main page, tinggal panggil components yang sudah dibuat.
 src/
 ├─ admin/            # Buat folder masing-masing role seperti ini
 │  ├─ components/     # untuk tempat menyimpan code fitur yang nantinya bisa dipakai di semua page
+│  │  ├─ Add.jsx
 │  │  ├─ DashboardCard.jsx
-│  │  ├─ Sidebar.jsx
-│  │  └─ Header.jsx
+│  │  └─ Delete.jsx
+|  |  └─ Header.jsx
+|  |  └─ Search.jsx
+|  |  └─ Sidebar.jsx
+|  |  └─ Table.jsx 
 │  └─ dashboard_admin_jurusan.jsx      # halaman CRUD jurusan
 |  └─ dashboard_admin.jsx     # halaman utama admin
 │
 ├─ login/              
 │  ├─ components/
-│  │  ├─ MouseRippleButton.jsx
-│  │  └─ Sidebar.jsx
+│  │  ├─ MouseRippleButton.jsx 
 │  └─ Login.jsx    
 │
 ├─ utils/
 |  └─ services               # tempat untuk menyimpan semua request
-|     └─ get_jurusan.js 
+|     └─ add_jurusan.js
+|     └─ delete_jurusan.js
+|     └─ edit_jurusan.js
+|     └─ get_jurusan.js
 │  └─ authHelper.js          # Fungsi login, logout, refresh token, token
 │  └─ axiosInstance.js       # konfigurasi utama request API
 |  └─ crypto.js              # Enkripsi & deskripsi token
