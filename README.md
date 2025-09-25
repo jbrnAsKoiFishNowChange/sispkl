@@ -80,9 +80,9 @@ src/
 
 
 ## 4️⃣ Aturan Penambahan Fitur
-1. Jika fitur spesifik role, taruh di folder roles/<role>/components/.
+1. Jika fitur spesifik role, taruh di folder src/<role>/components/.
 2. Jika komponen reusable bisa taruh di folder src/components/ agar bisa dipakai semua role.
 3. Jangan buat fitur yang sama di beberapa folder role → cukup panggil dari components yang sudah ada.
-4. Halaman utama tiap role tinggal import components yang dibutuhkan:
+4. Halaman utama tiap role tinggal import components yang dibutuhkan, misal:
 import Sidebar from './components/Sidebar';
 import DashboardCard from './components/DashboardCard';
