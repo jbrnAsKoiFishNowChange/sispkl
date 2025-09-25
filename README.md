@@ -18,7 +18,7 @@ cd sispkl
 npm install
 
 4. Jalankan proyek (harus punya node js, kalo belum install):
-npm start
+npm run dev
 
 ## 2️⃣ Panduan Berkolaborasi
 
@@ -37,7 +37,7 @@ Contoh : git checkout -b tambah-login
 3. Push Branch ke GitHub
 git push -u origin nama-fitur
 
-4. Setelah di review (SKIP bagian ini jika belum di review) 
+4. Setelah di review (hanya lakukan pull request dan SKIP bagian merge jika belum di review) 
 Pull Request (PR)
 - Buka GitHub → repo → akan muncul tombol Compare & pull request
 - Buat PR untuk menggabungkan branch ke main, ini biar perubahan di apply ke main tapi
