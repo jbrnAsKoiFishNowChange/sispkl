@@ -22,13 +22,13 @@ Fitur utama:
   initialData = {},   // data awal saat display edit
 
 ### Contoh item fields
-const fields = [
+const inputFields = [
   {
     name: "nama",        // nama field (wajib unik)
     label: "Nama Lengkap", // label ditampilkan
     type: "text",        // text | number | textarea | select
     minLength: 3,        // validasi minimal karakter
-    width: "full",       // full (1 kolom penuh) atau default (1/2 kolom)
+    width: "full",       // full (1 kolom penuh) atau half (1/2 kolom)
   },
   {
     name: "deskripsi",
@@ -50,26 +50,82 @@ const fields = [
 
 ### Cara pakai komponen
 - Tambah data
-<Add
-  title="Tambah User"
-  fields={fields}
-  onCancel={() => navigate("/users")}
-  onSubmit={(formData) => {
-    const data = Object.fromEntries(formData.entries());
-    console.log("Data baru:", data);
-  }}
-  existingData={users} // array data user untuk validasi duplikat
-/>
+    <Add
+      title="Tambah Jurusan"
+      fields={inputFields}
+      image={guruImg}
+      existingData={jurusan}
+      onSubmit={async (formData, setFieldErrors) => {
+        const newJurusan = Object.fromEntries(formData);
+
+        // validasi kode minimal 2 karakter
+        const kode = newJurusan.kode || "";
+        if (kode.length < 2) {
+          const kurang = 2 - kode.length;
+          setFieldErrors({
+            kode: `Kolom Kode Jurusan minimal 2 karakter. Tambahkan ${kurang} karakter lagi.`
+          });
+          return;
+        }
+
+        // validasi nama minimal 10 karakter
+        const nama = newJurusan.nama || "";
+        if (nama.length < 10) {
+          const kurang = 10 - nama.length;
+          setFieldErrors({
+            nama: `Kolom Nama Jurusan minimal 10 karakter. Tambahkan ${kurang} karakter lagi.`
+          });
+          return;
+        }
+
+        await createJurusan(newJurusan);
+        await fetchData();
+        toast.success("Data jurusan berhasil ditambahkan");
+        setMode("list");
+      }}
+      onCancel={() => setMode("list")}
+      containerClassName="max-w-3xl bg-white"
+      containerStyle={{ maxHeight: "600px" }}
+      backgroundStyle={{ backgroundColor: '#E1D6C4' }}
+    />
 
 - Edit data
-<Add
-  title="Edit User"
-  fields={fields}
-  onCancel={() => navigate("/users")}
-  onSubmit={(formData) => {
-    const data = Object.fromEntries(formData.entries());
-    console.log("Data hasil edit:", data);
-  }}
-  existingData={users}
-  initialData={userToEdit} // isi form dengan data user lama
-/>
+    <Add
+      title="Edit Jurusan"
+      fields={inputFields}
+      image={editGrafik}
+      existingData={jurusan.filter(j => j.id !== selectedRow.id)}
+      initialData={selectedRow}
+      onSubmit={async (formData, setFieldErrors) => {
+        const updatedJurusan = Object.fromEntries(formData);
+
+        // validasi kode minimal 2 karakter
+        const kode = updatedJurusan.kode || "";
+        if (kode.length < 2) {
+          const kurang = 2 - kode.length;
+          setFieldErrors({
+            kode: `Kolom Kode Jurusan minimal 2 karakter. Tambahkan ${kurang} karakter lagi.`
+          });
+          return;
+        }
+
+        // validasi nama minimal 10 karakter
+        const nama = updatedJurusan.nama || "";
+        if (nama.length < 10) {
+          const kurang = 10 - nama.length;
+          setFieldErrors({
+            nama: `Kolom Nama Jurusan minimal 10 karakter. Tambahkan ${kurang} karakter lagi.`
+          });
+          return;
+        }
+
+        await updateJurusan(selectedRow.id, updatedJurusan);
+        await fetchData();
+        toast.success("Data jurusan berhasil diperbarui");
+        setMode("list");
+      }}
+      onCancel={() => setMode("list")}
+      containerClassName="max-w-3xl bg-white"
+      containerStyle={{ maxHeight: "600px" }}
+      backgroundStyle={{ backgroundColor: '#641E21' }}
+    />
