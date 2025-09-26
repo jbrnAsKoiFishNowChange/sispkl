@@ -1,0 +1,75 @@
+# Panduan penggunaan input Add dan Edit
+
+### Komponen Add ini bisa dipakai untuk form tambah data maupun edit data.
+Fitur utama:
+1. Validasi required dan minLength.
+2. Cek duplikasi data dari existingData.
+3. Support input text, number, textarea, select.
+4. Bisa pre-fill data saat edit dengan initialData.
+5. Navigasi Enter → ke input berikutnya.
+6. Tooltip saat kolom kosong & difokuskan.
+
+### Parameter
+  title,            // judul form misal tambah data
+  fields = [],      
+  onCancel,
+  onSubmit,
+  image,
+  containerClassName = "",
+  containerStyle = {},
+  existingData = [],    // validasi data sudah ada
+  backgroundStyle = {},
+  initialData = {},   // data awal saat display edit
+
+### Contoh item fields
+const fields = [
+  {
+    name: "nama",        // nama field (wajib unik)
+    label: "Nama Lengkap", // label ditampilkan
+    type: "text",        // text | number | textarea | select
+    minLength: 3,        // validasi minimal karakter
+    width: "full",       // full (1 kolom penuh) atau default (1/2 kolom)
+  },
+  {
+    name: "deskripsi",
+    label: "Deskripsi",
+    type: "textarea",
+    rows: 4,
+    width: "full",
+  },
+  {
+    name: "role",
+    label: "Role",
+    type: "select",
+    options: [
+      { label: "Admin", value: "admin" },
+      { label: "User", value: "user" },
+    ],
+  },
+];
+
+### Cara pakai komponen
+- Tambah data
+<Add
+  title="Tambah User"
+  fields={fields}
+  onCancel={() => navigate("/users")}
+  onSubmit={(formData) => {
+    const data = Object.fromEntries(formData.entries());
+    console.log("Data baru:", data);
+  }}
+  existingData={users} // array data user untuk validasi duplikat
+/>
+
+- Edit data
+<Add
+  title="Edit User"
+  fields={fields}
+  onCancel={() => navigate("/users")}
+  onSubmit={(formData) => {
+    const data = Object.fromEntries(formData.entries());
+    console.log("Data hasil edit:", data);
+  }}
+  existingData={users}
+  initialData={userToEdit} // isi form dengan data user lama
+/>
