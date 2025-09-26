@@ -3,6 +3,9 @@
 Proyek ini dibuat menggunakan **React** dengan struktur modular agar mudah dikembangkan beberapa orang secara bersamaan.  
 
 ---
+INFORMASI FILE PANDUAN :
+1. panduan instalasi tailwind dan react => panduan install tailwind dan react.txt
+2. panduan penggunaan template halaman CRUD admin => Panduan_role_admin.md
 
 ### 1️⃣ Clone Repository
 
